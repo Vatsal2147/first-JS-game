@@ -18,13 +18,11 @@ let highScoreCounter = 0;
 
 
 
-
 for (let row = 0;row<rows;row++){
     for(let col=0; col<cols;col++){
         const block = document.createElement("div");
         block.classList.add("block");
-        block.innerText=row + "-" + col;
-        block.style.fontSize="9px";
+        
         board.appendChild(block);
         blocks[`${row}-${col}`] = block;
     }
@@ -74,7 +72,15 @@ function render(){
         head = {x:snake[0].x-1, y:snake[0].y}
      }
 
-
+    snake.forEach(function(val){
+        if(head.x==val.x && head.y==val.y){
+            clearInterval(intervalId);
+        document.querySelector(".modal").style.display = "flex";
+        document.querySelector(".start-game").style.display="none";
+        document.querySelector(".game-over").style.display="flex";
+        return;
+        }
+    })
 
      if(head.x<0||head.x>=rows || head.y<0 || head.y>=cols){
         // document.querySelector(".game-over").style.display = "block";
