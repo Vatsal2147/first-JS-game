@@ -6,9 +6,28 @@
 }
 
 html,body{
-    height: 100%;
-    width: 100%;
+    width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-45deg, #393d3b, #000000, #858584, #232222);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  
+  /* Optional: Ensures your body text remains easy to read */
+  color: #ffffff; 
+  font-family: sans-serif;
     
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 :root{
